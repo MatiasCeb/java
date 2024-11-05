@@ -56,5 +56,12 @@ public class LocatorController {
         return loc;
     }
 
+    @PutMapping("locators/edit")
+    public Locator editLocator(@RequestBody Locator loc) {
+        locService.editLocator(loc);
+
+        return locService.findLocator(loc.getId());
+    }
+
 
 }

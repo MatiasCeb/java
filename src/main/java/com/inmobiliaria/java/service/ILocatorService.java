@@ -14,4 +14,6 @@ public interface ILocatorService {
     public Locator findLocator(Long id);
 
     public void editLocator(Long originalId, long newId, String newName, String newLastname);
+
+    public void editLocator(Locator loc);
 }

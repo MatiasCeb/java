@@ -1,38 +1,33 @@
 package com.inmobiliaria.java.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Locator {
+public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    private String lastname;
-    // @OneToMany(mappedBy = "locator")
-    @OneToMany
-    private List<Property> propertiesList;
+    private String street;
+    private Long streetNumber;
 
-
-    public Locator() {
+    public Property() {
     }
 
-
-    public Locator(Long id, String name, String lastname, List<Property> propertiesList) {
+    public Property(Long id, String name, String street, Long streetNumber) {
         this.id = id;
         this.name = name;
-        this.lastname = lastname;
-        this.propertiesList = propertiesList;
+        this.street = street;
+        this.streetNumber = streetNumber;
     }
 
 }

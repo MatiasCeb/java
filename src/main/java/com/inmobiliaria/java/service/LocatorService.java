@@ -47,4 +47,9 @@ public class LocatorService implements ILocatorService {
 
         this.saveLocator(loc);
     }
+
+    @Override
+    public void editLocator(Locator loc) {
+        this.saveLocator(loc);
+    }
 }
