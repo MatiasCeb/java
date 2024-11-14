@@ -25,6 +25,11 @@ public class PropertyController {
     public List<Property>  getProperties() {
         return properService.getProperties();
     }
+
+    @GetMapping("/property/{id}")
+    public Property  getProperty(@PathVariable Long id) {
+        return properService.getProperty(id);
+    }
     
     @PostMapping("/properties/create")
     public String createProperty(@RequestBody Property proper) {

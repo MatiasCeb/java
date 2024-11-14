@@ -19,7 +19,13 @@ public class PropertyService implements IPropertyService {
         List<Property> propertiesList = properRepo.findAll();
         return propertiesList;
     }
-
+    
+    @Override
+    public Property getProperty(Long id) {
+        Property proper = properRepo.findById(id).orElse(null);
+        return proper;
+    }
+    
     @Override
     public void saveProperty(Property proper) {
         properRepo.save(proper);
@@ -40,5 +46,4 @@ public class PropertyService implements IPropertyService {
     public void editProperty(Property proper) {
         this.saveProperty(proper);
     }
-
 }

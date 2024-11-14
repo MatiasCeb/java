@@ -7,6 +7,8 @@ import com.inmobiliaria.java.model.Property;
 public interface IPropertyService {
     public List<Property> getProperties();
 
+    public Property getProperty(Long id);
+
     public void saveProperty(Property proper);
 
     public void deleteProperty(Long id);
