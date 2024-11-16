@@ -103,6 +103,99 @@ public class ContractService implements IContractService {
             1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
             2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
             3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+
+
+
+
+
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
+                1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+                    1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+                        1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+                            1. El locador entrega en locación el inmueble mencionado al locatario, quien lo recibe en perfectas condiciones.
+            2. El locatario deberá abonar el alquiler en tiempo y forma según lo acordado entre las partes.
+            3. Cualquier incumplimiento de las cláusulas establecidas será motivo de rescisión del contrato.
             
             ---
             **Firma del Locador:**  
