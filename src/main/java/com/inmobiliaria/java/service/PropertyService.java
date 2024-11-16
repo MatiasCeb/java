@@ -46,4 +46,10 @@ public class PropertyService implements IPropertyService {
     public void editProperty(Property proper) {
         this.saveProperty(proper);
     }
+
+    @Override
+    public List<Property> getPropertiesByLocatorId(Long locatorId) {
+        return properRepo.findByLocatorId(locatorId);
+    }
+
 }

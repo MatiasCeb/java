@@ -16,4 +16,6 @@ public interface IPropertyService {
     public Property findProperty(Long id);
 
     public void editProperty(Property proper);
+
+    List<Property> getPropertiesByLocatorId(Long locatorId);
 }

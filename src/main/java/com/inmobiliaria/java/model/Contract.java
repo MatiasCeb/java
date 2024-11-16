@@ -21,8 +21,8 @@ public class Contract {
     private Property property;
 
     // Otros campos adicionales (fechas, monto, etc.)
-    private String startDate;
-    private String endDate;
+    // private String startDate;
+    // private String endDate;
 
     // Getters y Setters
     public Long getId() { return id; }
@@ -36,10 +36,4 @@ public class Contract {
 
     public Property getProperty() { return property; }
     public void setProperty(Property property) { this.property = property; }
-
-    public String getStartDate() { return startDate; }
-    public void setStartDate(String startDate) { this.startDate = startDate; }
-
-    public String getEndDate() { return endDate; }
-    public void setEndDate(String endDate) { this.endDate = endDate; }
 }

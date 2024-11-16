@@ -1,6 +1,7 @@
 package com.inmobiliaria.java.controller;
 
 import com.inmobiliaria.java.model.Contract;
+import com.inmobiliaria.java.model.ContractRequest;
 import com.inmobiliaria.java.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,13 @@ public class ContractController {
     private ContractService contractService;
 
     @PostMapping
-    public Contract createContract(@RequestBody Contract contract) {
-        return contractService.createContract(contract);
+    public ResponseEntity<Contract> createContract(@RequestBody ContractRequest contractRequest) {
+        Contract contract = contractService.createContract(
+                contractRequest.getLocatorId(),
+                contractRequest.getRenterId(),
+                contractRequest.getPropertyId()
+        );
+        return ResponseEntity.ok(contract);
     }
 
     @PutMapping("/{id}")
@@ -43,13 +49,11 @@ public class ContractController {
 
     @GetMapping("/{id}/markdown")
     public ResponseEntity<String> getContractAsMarkdown(@PathVariable Long id) {
-        Contract contract = contractService.getContractById(id);
-
-        // Delegamos la generación de Markdown al servicio
-        String markdown = contractService.generateMarkdown(contract);
-
+        String markdown = contractService.generateMarkdown(id);
         return ResponseEntity.ok()
                 .header("Content-Type", "text/markdown")
                 .body(markdown);
     }
+
+    // TODO: Implementar endpoint para mostrar contratos en base a una propiedad determinada.-
 }

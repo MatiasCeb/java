@@ -1,12 +1,20 @@
 package com.inmobiliaria.java.service;
 
 import com.inmobiliaria.java.model.Contract;
+import com.inmobiliaria.java.model.Locator;
+import com.inmobiliaria.java.model.Property;
+import com.inmobiliaria.java.model.Renter;
 import com.inmobiliaria.java.repository.IContractRepository;
+import com.inmobiliaria.java.repository.ILocatorRepository;
+import com.inmobiliaria.java.repository.IPropertyRepository;
+import com.inmobiliaria.java.repository.IRenterRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContractService implements IContractService {
@@ -14,8 +22,30 @@ public class ContractService implements IContractService {
     @Autowired
     private IContractRepository contractRepository;
 
+    @Autowired
+    private ILocatorRepository locatorRepository;
+
+    @Autowired
+    private IRenterRepository renterRepository;
+
+    @Autowired
+    private IPropertyRepository propertyRepository;
+
     @Override
-    public Contract createContract(Contract contract) {
+    public Contract createContract(Long locatorId, Long renterId, Long propertyId) {
+        Optional<Locator> locator = locatorRepository.findById(locatorId);
+        Optional<Renter> renter = renterRepository.findById(renterId);
+        Optional<Property> property = propertyRepository.findById(propertyId);
+
+        if (locator.isEmpty() || renter.isEmpty() || property.isEmpty()) {
+            throw new RuntimeException("Locator, Renter, or Property not found");
+        }
+
+        Contract contract = new Contract();
+        contract.setLocator(locator.get());
+        contract.setRenter(renter.get());
+        contract.setProperty(property.get());
+
         return contractRepository.save(contract);
     }
 
@@ -27,8 +57,6 @@ public class ContractService implements IContractService {
         existingContract.setLocator(contract.getLocator());
         existingContract.setRenter(contract.getRenter());
         existingContract.setProperty(contract.getProperty());
-        existingContract.setStartDate(contract.getStartDate());
-        existingContract.setEndDate(contract.getEndDate());
 
         return contractRepository.save(existingContract);
     }
@@ -50,7 +78,14 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public String generateMarkdown(Contract contract) {
+    public String generateMarkdown(Long contractId) {
+        Optional<Contract> contract = contractRepository.findById(contractId);
+
+        if (contract.isEmpty()) {
+            throw new RuntimeException("Contract not found");
+        }
+
+        Contract contractData = contract.get();
         return String.format("""
             # Contrato de Locación
             
@@ -61,9 +96,6 @@ public class ContractService implements IContractService {
             **DNI Locatario:** DNIgenérico  
             
             **Inmueble:** address genérica  
-            
-            **Fecha de Inicio:** %s  
-            **Fecha de Finalización:** %s  
             
             ---
             **Cláusulas Generales:**
@@ -81,12 +113,10 @@ public class ContractService implements IContractService {
             
             ---
             """,
-            contract.getLocator().getName(),
-            contract.getLocator().getLastname(),
-            contract.getRenter().getName(),
-            contract.getRenter().getLastname(),
-            contract.getStartDate(),
-            contract.getEndDate()
+            contractData.getLocator().getName(),
+            contractData.getLocator().getLastname(),
+            contractData.getRenter().getName(),
+            contractData.getRenter().getLastname()
         );
     }
 }

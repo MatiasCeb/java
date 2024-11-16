@@ -3,6 +3,7 @@ package com.inmobiliaria.java.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,5 +51,11 @@ public class PropertyController {
         properService.editProperty(proper);
 
         return properService.findProperty(proper.getId());
+    }
+
+        @GetMapping("/properties/locator/{locatorId}")
+    public ResponseEntity<List<Property>> getPropertiesByLocatorId(@PathVariable Long locatorId) {
+        List<Property> properties = properService.getPropertiesByLocatorId(locatorId);
+        return ResponseEntity.ok(properties);
     }
 }

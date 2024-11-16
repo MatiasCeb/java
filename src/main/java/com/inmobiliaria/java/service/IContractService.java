@@ -5,10 +5,10 @@ import java.util.List;
 import com.inmobiliaria.java.model.Contract;
 
 public interface IContractService {
-    Contract createContract(Contract contract);
+    Contract createContract(Long locatorId, Long renterId, Long propertyId);
     Contract updateContract(Long id, Contract contract);
     void deleteContract(Long id);
     List<Contract> getAllContracts();
     Contract getContractById(Long id);
-    String generateMarkdown(Contract contract);
+    String generateMarkdown(Long contractId);
 }
