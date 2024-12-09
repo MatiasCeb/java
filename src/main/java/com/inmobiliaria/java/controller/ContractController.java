@@ -20,7 +20,7 @@ public class ContractController {
     @PostMapping
     public ResponseEntity<Contract> createContract(@RequestBody ContractRequest contractRequest) {
         Contract contract = contractService.createContract(
-                contractRequest.getLocatorId(),
+                contractRequest.getLandlordId(),
                 contractRequest.getRenterId(),
                 contractRequest.getPropertyId()
         );

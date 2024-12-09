@@ -5,7 +5,7 @@ import java.util.List;
 import com.inmobiliaria.java.model.Contract;
 
 public interface IContractService {
-    Contract createContract(Long locatorId, Long renterId, Long propertyId);
+    Contract createContract(Long landlordId, Long renterId, Long propertyId);
     Contract updateContract(Long id, Contract contract);
     void deleteContract(Long id);
     List<Contract> getAllContracts();

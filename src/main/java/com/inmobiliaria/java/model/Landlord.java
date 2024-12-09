@@ -11,28 +11,29 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Locator {
+public class Landlord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "locator_id")
+    @Column(name = "landlord_id")
     private Long id;
-    @Column(name = "locator_name")
+    @Column(name = "landlord_name")
     private String name;
-    @Column(name = "locator_lastname")
+    @Column(name = "landlord_lastname")
     private String lastname;
-    // @OneToMany(mappedBy = "locator", cascade = CascadeType.ALL)
-    // private List<Property> propertiesList;
+    @OneToMany(mappedBy = "landlord", cascade = CascadeType.ALL)
+    private List<Property> propertiesList;
 
 
-    public Locator() {
+    public Landlord() {
     }
 
 
-    public Locator(Long id, String name, String lastname) {
+    public Landlord(Long id, String name, String lastname, List<Property> propertiesList) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
+        this.propertiesList = propertiesList;
     }
 
 
@@ -51,9 +52,9 @@ public class Locator {
     }
 
 
-    // public List<Property> getPropertiesList() {
-    //     return propertiesList;
-    // }
+    public List<Property> getPropertiesList() {
+        return propertiesList;
+    }
 
 
     public void setId(Long id) {
@@ -71,8 +72,8 @@ public class Locator {
     }
 
 
-    // public void setPropertiesList(List<Property> propertiesList) {
-    //     this.propertiesList = propertiesList;
-    // }
+    public void setPropertiesList(List<Property> propertiesList) {
+        this.propertiesList = propertiesList;
+    }
 
 }

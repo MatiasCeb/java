@@ -1,20 +1,17 @@
 package com.inmobiliaria.java.model;
 
-import java.time.LocalDate;
-
 public class ContractRequest {
 
-    private Long locatorId;
+    private Long landlordId;
     private Long renterId;
     private Long propertyId;
 
-    // Getters y setters
-    public Long getLocatorId() {
-        return locatorId;
+    public Long getLandlordId() {
+        return landlordId;
     }
 
-    public void setLocatorId(Long locatorId) {
-        this.locatorId = locatorId;
+    public void setLandlordId(Long landlordId) {
+        this.landlordId = landlordId;
     }
 
     public Long getRenterId() {

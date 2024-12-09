@@ -9,8 +9,8 @@ public class Contract {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "locator_id", nullable = false)
-    private Locator locator;
+    @JoinColumn(name = "landlord_id", nullable = false)
+    private Landlord landlord;
 
     @ManyToOne
     @JoinColumn(name = "renter_id", nullable = false)
@@ -28,8 +28,8 @@ public class Contract {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public Locator getLocator() { return locator; }
-    public void setLocator(Locator locator) { this.locator = locator; }
+    public Landlord getLandlord() { return landlord; }
+    public void setLandlord(Landlord landlord) { this.landlord = landlord; }
 
     public Renter getRenter() { return renter; }
     public void setRenter(Renter renter) { this.renter = renter; }

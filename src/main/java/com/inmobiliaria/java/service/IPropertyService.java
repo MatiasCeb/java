@@ -11,11 +11,12 @@ public interface IPropertyService {
 
     public void saveProperty(Property proper);
 
+    // TODO: devolucion de un mensaje al cliente cuando se trate de eliminar un renter que esta ligado a una clase contrato.
     public void deleteProperty(Long id);
 
     public Property findProperty(Long id);
 
     public void editProperty(Property proper);
 
-    List<Property> getPropertiesByLocatorId(Long locatorId);
+    List<Property> getPropertiesByLandlordId(Long landlordId);
 }

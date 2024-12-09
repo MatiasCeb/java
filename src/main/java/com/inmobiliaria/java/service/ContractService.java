@@ -1,11 +1,11 @@
 package com.inmobiliaria.java.service;
 
 import com.inmobiliaria.java.model.Contract;
-import com.inmobiliaria.java.model.Locator;
+import com.inmobiliaria.java.model.Landlord;
 import com.inmobiliaria.java.model.Property;
 import com.inmobiliaria.java.model.Renter;
 import com.inmobiliaria.java.repository.IContractRepository;
-import com.inmobiliaria.java.repository.ILocatorRepository;
+import com.inmobiliaria.java.repository.ILandlordRepository;
 import com.inmobiliaria.java.repository.IPropertyRepository;
 import com.inmobiliaria.java.repository.IRenterRepository;
 
@@ -23,7 +23,7 @@ public class ContractService implements IContractService {
     private IContractRepository contractRepository;
 
     @Autowired
-    private ILocatorRepository locatorRepository;
+    private ILandlordRepository landlordRepository;
 
     @Autowired
     private IRenterRepository renterRepository;
@@ -32,17 +32,17 @@ public class ContractService implements IContractService {
     private IPropertyRepository propertyRepository;
 
     @Override
-    public Contract createContract(Long locatorId, Long renterId, Long propertyId) {
-        Optional<Locator> locator = locatorRepository.findById(locatorId);
+    public Contract createContract(Long landlordId, Long renterId, Long propertyId) {
+        Optional<Landlord> landlord = landlordRepository.findById(landlordId);
         Optional<Renter> renter = renterRepository.findById(renterId);
         Optional<Property> property = propertyRepository.findById(propertyId);
 
-        if (locator.isEmpty() || renter.isEmpty() || property.isEmpty()) {
-            throw new RuntimeException("Locator, Renter, or Property not found");
+        if (landlord.isEmpty() || renter.isEmpty() || property.isEmpty()) {
+            throw new RuntimeException("Landlord, Renter, or Property not found");
         }
 
         Contract contract = new Contract();
-        contract.setLocator(locator.get());
+        contract.setLandlord(landlord.get());
         contract.setRenter(renter.get());
         contract.setProperty(property.get());
 
@@ -54,7 +54,7 @@ public class ContractService implements IContractService {
         Contract existingContract = contractRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Contract not found"));
 
-        existingContract.setLocator(contract.getLocator());
+        existingContract.setLandlord(contract.getLandlord());
         existingContract.setRenter(contract.getRenter());
         existingContract.setProperty(contract.getProperty());
 
@@ -206,8 +206,8 @@ public class ContractService implements IContractService {
             
             ---
             """,
-            contractData.getLocator().getName(),
-            contractData.getLocator().getLastname(),
+            contractData.getLandlord().getName(),
+            contractData.getLandlord().getLastname(),
             contractData.getRenter().getName(),
             contractData.getRenter().getLastname()
         );
