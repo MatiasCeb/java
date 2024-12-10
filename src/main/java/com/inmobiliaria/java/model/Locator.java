@@ -11,68 +11,60 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Locator {
+public class Locator extends Person{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "locator_id")
-    private Long id;
-    @Column(name = "locator_name")
-    private String name;
-    @Column(name = "locator_lastname")
-    private String lastname;
-    // @OneToMany(mappedBy = "locator", cascade = CascadeType.ALL)
-    // private List<Property> propertiesList;
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    // @Column(name = "locator_id")
+    // private Long id;
+    // @Column(name = "locator_name")
+    // private String name;
+    // @Column(name = "locator_lastname")
+    // private String lastname;
+    // // @OneToMany(mappedBy = "locator", cascade = CascadeType.ALL)
+    // // private List<Property> propertiesList;
 
+    @Column(name = "locator_cuil")
+    private String cuil;
 
-    public Locator() {
+    @Column(name = "locator_income")
+    private double monthlyIncome;
+
+    @Column(name = "locator_employer")
+    private String employer;
+
+    public Locator(Long id, String name, String lastname, Long dni, String email, String phone,
+            List<Property> propertiesList, String cuil, double monthlyIncome, String employer) {
+        super(id, name, lastname, dni, email, phone, propertiesList);
+        this.cuil = cuil;
+        this.monthlyIncome = monthlyIncome;
+        this.employer = employer;
     }
 
-
-    public Locator(Long id, String name, String lastname) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
+    public String getCuil() {
+        return cuil;
     }
 
-
-    public Long getId() {
-        return id;
+    public void setCuil(String cuil) {
+        this.cuil = cuil;
     }
 
-
-    public String getName() {
-        return name;
+    public double getMonthlyIncome() {
+        return monthlyIncome;
     }
 
-
-    public String getLastname() {
-        return lastname;
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
     }
 
-
-    // public List<Property> getPropertiesList() {
-    //     return propertiesList;
-    // }
-
-
-    public void setId(Long id) {
-        this.id = id;
+    public String getEmployer() {
+        return employer;
     }
 
-
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployer(String employer) {
+        this.employer = employer;
     }
 
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-
-    // public void setPropertiesList(List<Property> propertiesList) {
-    //     this.propertiesList = propertiesList;
-    // }
+    
 
 }

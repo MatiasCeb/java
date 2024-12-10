@@ -48,8 +48,8 @@ public class PropertyService implements IPropertyService {
     }
 
     @Override
-    public List<Property> getPropertiesByLandlordId(Long landlordId) {
-        return properRepo.findByLandlordId(landlordId);
+    public List<Property> getPropertiesByPersonId(Long personId) {
+        return properRepo.findByPersonId(personId);
     }
 
 }

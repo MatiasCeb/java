@@ -18,5 +18,5 @@ public interface IPropertyService {
 
     public void editProperty(Property proper);
 
-    List<Property> getPropertiesByLandlordId(Long landlordId);
+    List<Property> getPropertiesByPersonId(Long personId);
 }

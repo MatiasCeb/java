@@ -54,8 +54,8 @@ public class PropertyController {
     }
 
         @GetMapping("/properties/landlord/{landlordId}")
-    public ResponseEntity<List<Property>> getPropertiesByLocatorId(@PathVariable Long landlordId) {
-        List<Property> properties = properService.getPropertiesByLandlordId(landlordId);
+    public ResponseEntity<List<Property>> getPropertiesByPersonId(@PathVariable Long personId) {
+        List<Property> properties = properService.getPropertiesByPersonId(personId);
         return ResponseEntity.ok(properties);
     }
 }

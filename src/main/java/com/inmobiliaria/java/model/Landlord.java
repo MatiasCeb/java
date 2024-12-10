@@ -21,19 +21,18 @@ public class Landlord {
     private String name;
     @Column(name = "landlord_lastname")
     private String lastname;
-    @OneToMany(mappedBy = "landlord", cascade = CascadeType.ALL)
-    private List<Property> propertiesList;
+    // @OneToMany(mappedBy = "landlord", cascade = CascadeType.ALL)
+    // private List<Property> propertiesList;
 
 
     public Landlord() {
     }
 
 
-    public Landlord(Long id, String name, String lastname, List<Property> propertiesList) {
+    public Landlord(Long id, String name, String lastname) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
-        this.propertiesList = propertiesList;
     }
 
 
@@ -51,12 +50,6 @@ public class Landlord {
         return lastname;
     }
 
-
-    public List<Property> getPropertiesList() {
-        return propertiesList;
-    }
-
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -70,10 +63,4 @@ public class Landlord {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
-
-    public void setPropertiesList(List<Property> propertiesList) {
-        this.propertiesList = propertiesList;
-    }
-
 }

@@ -31,18 +31,18 @@ public class Property {
     // private Locator locator;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "landlord_id")
-    private Landlord landlord;
+    @JoinColumn(name = "person_id")
+    private Person person;
     
     public Property() {
     }
 
-    public Property(Long id, String name, String street, Long streetNumber, Landlord landlord) {
+    public Property(Long id, String name, String street, Long streetNumber, Person person) {
         this.id = id;
         this.name = name;
         this.street = street;
         this.streetNumber = streetNumber;
-        this.landlord = landlord;
+        this.person = person;
     }
 
     public Long getId() {
@@ -66,7 +66,7 @@ public class Property {
     // }
 
     public Long getLandlord() {
-        return landlord.getId();
+        return person.getId();
     }
 
     public void setId(Long id) {

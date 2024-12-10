@@ -1,32 +1,59 @@
 package com.inmobiliaria.java.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
-public class Renter {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Renter extends Person{
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name = "renter_cuil")
+    private String cuil;
 
-    @Column(nullable = false)
-    private String lastname;
+    @Column(name = "renter_income")
+    private double monthlyIncome;
 
-    @Column(nullable = false, unique = true)
-    private Long dni;
+    @Column(name = "renter_employer")
+    private String employer;
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Renter() {
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public Renter(Long id, String name, String lastname, Long dni, String email, String phone,
+            List<Property> propertiesList) {
+        super(id, name, lastname, dni, email, phone, propertiesList);
+    }
 
-    public String getLastname() { return lastname; }
-    public void setLastname(String lastname) { this.lastname = lastname; }
+    public Renter(Long id, String name, String lastname, Long dni, String email, String phone,
+            List<Property> propertiesList, String cuil, double monthlyIncome, String employer) {
+        super(id, name, lastname, dni, email, phone, propertiesList);
+        this.cuil = cuil;
+        this.monthlyIncome = monthlyIncome;
+        this.employer = employer;
+    }
 
-    public Long getDni() { return dni; }
-    public void setDni(Long dni) { this.dni = dni; }
+    public String getCuil() {
+        return cuil;
+    }
+
+    public void setCuil(String cuil) {
+        this.cuil = cuil;
+    }
+
+    public double getMonthlyIncome() {
+        return monthlyIncome;
+    }
+
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
+    }
+
+    public String getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
+    }
+
 }

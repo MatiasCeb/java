@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IRenterRepository extends JpaRepository<Renter, Long> {
-    boolean existsByDni(Long dni); // Método adicional para validaciones
+    boolean existsByDni(Long dni);
 }

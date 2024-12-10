@@ -9,5 +9,5 @@ import com.inmobiliaria.java.model.Property;
 
 @Repository
 public interface IPropertyRepository  extends JpaRepository<Property, Long> {
-    List<Property> findByLandlordId(Long landlordId);
+    List<Property> findByPersonId(Long personId);
 }

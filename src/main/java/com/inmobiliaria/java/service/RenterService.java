@@ -24,7 +24,7 @@ public class RenterService implements IRenterService {
     @Override
     public Renter updateRenter(Long id, Renter renter) {
         Renter existingRenter = renterRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Renter no encontrado"));
+                .orElseThrow(() -> new RuntimeException("Inquilino no encontrado"));
 
         existingRenter.setName(renter.getName());
         existingRenter.setLastname(renter.getLastname());
