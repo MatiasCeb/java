@@ -2,6 +2,7 @@ package com.inmobiliaria.java.service;
 
 import java.util.List;
 
+import com.inmobiliaria.java.dto.LandlordUpdateDTO;
 import com.inmobiliaria.java.model.Landlord;
 
 public interface ILandlordService {
@@ -14,7 +15,7 @@ public interface ILandlordService {
 
     public Landlord findLandlord(Long id);
 
-    public void editLandlord(Long originalId, long newId, String newName, String newLastname);
-
     public void editLandlord(Landlord landlord);
+
+    public void updateLandlordFields(Landlord landlord, LandlordUpdateDTO dto);
 }

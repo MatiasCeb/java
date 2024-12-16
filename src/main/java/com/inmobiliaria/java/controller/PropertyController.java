@@ -46,6 +46,8 @@ public class PropertyController {
         return "La propiedad fue eliminada correctamente";
     }
 
+
+    // DOING: solucionar Cannot invoke "com.inmobiliaria.java.model.Person.getId()" because "this.person" is null
         @PutMapping("properties/edit")
     public Property editProperty(@RequestBody Property proper) {
         properService.editProperty(proper);

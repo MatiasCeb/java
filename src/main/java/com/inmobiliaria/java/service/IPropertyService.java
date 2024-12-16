@@ -16,6 +16,8 @@ public interface IPropertyService {
 
     public Property findProperty(Long id);
 
+    public List<Property> findPropertiesByIds(List<Long> propertyIds);
+
     public void editProperty(Property proper);
 
     List<Property> getPropertiesByPersonId(Long personId);

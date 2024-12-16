@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inmobiliaria.java.dto.LandlordUpdateDTO;
 import com.inmobiliaria.java.model.Landlord;
 import com.inmobiliaria.java.service.ILandlordService;
 
@@ -45,24 +46,13 @@ public class LandlordController {
         return "El locador fue eliminado correctamente";
     }
 
-    @PutMapping("landlords/edit/{original_id}")
-    public Landlord editLandlord(@PathVariable Long original_id, 
-                                @RequestParam(required = false, name= "id") Long newId,
-                                @RequestParam(required = false, name= "name") String newName,
-                                @RequestParam(required = false, name= "lastname") String newLastname
-                                ) {
-        landlordService.editLandlord(original_id, newId, newName, newLastname);
-
-        Landlord landlord = landlordService.findLandlord(original_id);
-        
-        return landlord;
-    }
-
     @PutMapping("landlords/edit")
-    public Landlord editLandlord(@RequestBody Landlord landlord) {
-        landlordService.editLandlord(landlord);
+    public Landlord editLandlord(@RequestBody LandlordUpdateDTO landlordDto) {
+    Landlord landlord = landlordService.findLandlord(landlordDto.getId());
 
-        return landlordService.findLandlord(landlord.getId());
+    landlordService.updateLandlordFields(landlord, landlordDto);
+
+    return landlordService.findLandlord(landlord.getId());
     }
 
 

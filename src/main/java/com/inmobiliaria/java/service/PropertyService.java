@@ -43,6 +43,11 @@ public class PropertyService implements IPropertyService {
     }
 
     @Override
+    public List<Property> findPropertiesByIds(List<Long> propertyIds) {
+        return properRepo.findAllById(propertyIds);
+    }
+
+    @Override
     public void editProperty(Property proper) {
         this.saveProperty(proper);
     }

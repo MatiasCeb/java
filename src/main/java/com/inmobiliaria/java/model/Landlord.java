@@ -11,56 +11,67 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Landlord {
+public class Landlord extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "landlord_id")
-    private Long id;
-    @Column(name = "landlord_name")
-    private String name;
-    @Column(name = "landlord_lastname")
-    private String lastname;
-    // @OneToMany(mappedBy = "landlord", cascade = CascadeType.ALL)
-    // private List<Property> propertiesList;
+    @Column(name = "landlord_cuit")
+    private Long cuit; 
+
+    @Column(name = "landlord_bank")
+    private String bank; 
+
+    @Column(name = "landlord_accountNumber")
+    private String bankAccount; 
 
 
     public Landlord() {
     }
 
 
-    public Landlord(Long id, String name, String lastname) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
+    public Landlord(Long cuit, String bank, String bankAccount) {
+        this.cuit = cuit;
+        this.bank = bank;
+        this.bankAccount = bankAccount;
     }
 
 
-    public Long getId() {
-        return id;
+    public Landlord(Long id, String name, String lastname, Long dni, String email, Long phone,
+            List<Property> propertiesList, Long cuit, String bank, String bankAccount) {
+        super(id, name, lastname, dni, email, phone, propertiesList);
+        this.cuit = cuit;
+        this.bank = bank;
+        this.bankAccount = bankAccount;
     }
 
 
-    public String getName() {
-        return name;
+    public Long getCuit() {
+        return cuit;
     }
 
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setCuit(Long cuit) {
+        this.cuit = cuit;
     }
 
 
-    public void setName(String name) {
-        this.name = name;
+    public String getBank() {
+        return bank;
     }
 
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setBank(String bank) {
+        this.bank = bank;
     }
+
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+
+    public void setBankAccount(String bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+
+    
 }

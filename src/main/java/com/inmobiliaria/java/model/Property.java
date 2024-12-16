@@ -1,5 +1,7 @@
 package com.inmobiliaria.java.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +34,7 @@ public class Property {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
+    @JsonBackReference
     private Person person;
     
     public Property() {
@@ -49,40 +52,40 @@ public class Property {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public Long getStreetNumber() {
-        return streetNumber;
-    }
-
-    // public Long getLocator() {
-    //     return locator.getId();
-    // }
-
-    public Long getLandlord() {
-        return person.getId();
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
     public void setStreet(String street) {
         this.street = street;
     }
 
+    public Long getStreetNumber() {
+        return streetNumber;
+    }
+
     public void setStreetNumber(Long streetNumber) {
         this.streetNumber = streetNumber;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
 }

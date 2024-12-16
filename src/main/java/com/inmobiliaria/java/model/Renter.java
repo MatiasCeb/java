@@ -19,12 +19,12 @@ public class Renter extends Person{
     public Renter() {
     }
 
-    public Renter(Long id, String name, String lastname, Long dni, String email, String phone,
+    public Renter(Long id, String name, String lastname, Long dni, String email, Long phone,
             List<Property> propertiesList) {
         super(id, name, lastname, dni, email, phone, propertiesList);
     }
 
-    public Renter(Long id, String name, String lastname, Long dni, String email, String phone,
+    public Renter(Long id, String name, String lastname, Long dni, String email, Long phone,
             List<Property> propertiesList, String cuil, double monthlyIncome, String employer) {
         super(id, name, lastname, dni, email, phone, propertiesList);
         this.cuil = cuil;

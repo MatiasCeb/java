@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inmobiliaria.java.dto.LandlordUpdateDTO;
 import com.inmobiliaria.java.model.Landlord;
+import com.inmobiliaria.java.model.Property;
 import com.inmobiliaria.java.repository.ILandlordRepository;
 
 @Service
@@ -13,6 +15,9 @@ public class LandlordService implements ILandlordService {
 
     @Autowired
     private ILandlordRepository landlordRepo;
+
+    @Autowired
+    private PropertyService propertyService;
 
 
     @Override
@@ -38,18 +43,41 @@ public class LandlordService implements ILandlordService {
     }
 
     @Override
-    public void editLandlord(Long originalId, long newId, String newName, String newLastname) {
-        Landlord landlord = this.findLandlord(originalId);
-        landlord.setId(newId);
-        landlord.setLastname(newLastname);
-        landlord.setName(newName);
-
-
-        this.saveLandlord(landlord);
-    }
-
-    @Override
     public void editLandlord(Landlord landlord) {
         this.saveLandlord(landlord);
     }
+
+    public void updateLandlordFields(Landlord landlord, LandlordUpdateDTO dto) {
+    if (dto.getName() != null) {
+        landlord.setName(dto.getName());
+    }
+    if (dto.getLastname() != null) {
+        landlord.setLastname(dto.getLastname());
+    }
+    if (dto.getDni() != null) {
+        landlord.setDni(dto.getDni());
+    }
+    if (dto.getEmail() != null) {
+        landlord.setEmail(dto.getEmail());
+    }
+    if (dto.getPhone() != null) {
+        landlord.setPhone(dto.getPhone());
+    }
+    if (dto.getCuit() != null) {
+        landlord.setCuit(dto.getCuit());
+    }
+    if (dto.getBank() != null) {
+        landlord.setBank(dto.getBank());
+    }
+    if (dto.getBankAccount() != null) {
+        landlord.setBankAccount(dto.getBankAccount());
+    }
+
+    if (dto.getPropertiesListIds() != null) {
+        List<Property> properties = propertyService.findPropertiesByIds(dto.getPropertiesListIds());
+        landlord.setPropertiesList(properties);
+    }
+
+    this.saveLandlord(landlord);
+}
 }

@@ -3,6 +3,10 @@ package com.inmobiliaria.java.model;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +16,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "type"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Landlord.class, name = "landlord"),
+    @JsonSubTypes.Type(value = Renter.class, name = "renter")
+})
 public abstract class Person {
 
     @Id
@@ -27,16 +40,17 @@ public abstract class Person {
     @Column(name = "person_email")
     private String email;
     @Column(name = "person_phone")
-    private String phone;
+    private Long phone;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Property> propertiesList;
 
 
     public Person() {
     }
 
-    public Person(Long id, String name, String lastname, Long dni, String email, String phone,
+    public Person(Long id, String name, String lastname, Long dni, String email, Long phone,
             List<Property> propertiesList) {
         this.id = id;
         this.name = name;
@@ -87,11 +101,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

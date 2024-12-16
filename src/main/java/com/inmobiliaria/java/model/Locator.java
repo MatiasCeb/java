@@ -13,16 +13,6 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Locator extends Person{
 
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    // @Column(name = "locator_id")
-    // private Long id;
-    // @Column(name = "locator_name")
-    // private String name;
-    // @Column(name = "locator_lastname")
-    // private String lastname;
-    // // @OneToMany(mappedBy = "locator", cascade = CascadeType.ALL)
-    // // private List<Property> propertiesList;
 
     @Column(name = "locator_cuil")
     private String cuil;
@@ -33,7 +23,7 @@ public class Locator extends Person{
     @Column(name = "locator_employer")
     private String employer;
 
-    public Locator(Long id, String name, String lastname, Long dni, String email, String phone,
+    public Locator(Long id, String name, String lastname, Long dni, String email, Long phone,
             List<Property> propertiesList, String cuil, double monthlyIncome, String employer) {
         super(id, name, lastname, dni, email, phone, propertiesList);
         this.cuil = cuil;
