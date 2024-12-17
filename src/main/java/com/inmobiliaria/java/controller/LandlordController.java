@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inmobiliaria.java.dto.LandlordUpdateDTO;
+import com.inmobiliaria.java.dto.LandlordDTO;
 import com.inmobiliaria.java.model.Landlord;
 import com.inmobiliaria.java.service.ILandlordService;
 
@@ -28,13 +28,13 @@ public class LandlordController {
     private ILandlordService landlordService;
 
     @GetMapping("/landlords")
-    public List<Landlord>  getLandlords() {
+    public List<LandlordDTO>  getLandlords() {
         return landlordService.getLandlords();
     }
     
     @PostMapping("/landlords/create")
-    public String createLandlord(@RequestBody Landlord landlord) {
-        landlordService.saveLandlord(landlord);
+    public String createLandlord(@RequestBody LandlordDTO landlordDTO) {
+        landlordService.saveLandlord(landlordDTO);
         
         return "El locador fue creado correctamente";
     }
@@ -47,7 +47,7 @@ public class LandlordController {
     }
 
     @PutMapping("landlords/edit")
-    public Landlord editLandlord(@RequestBody LandlordUpdateDTO landlordDto) {
+    public Landlord editLandlord(@RequestBody LandlordDTO landlordDto) {
     Landlord landlord = landlordService.findLandlord(landlordDto.getId());
 
     landlordService.updateLandlordFields(landlord, landlordDto);

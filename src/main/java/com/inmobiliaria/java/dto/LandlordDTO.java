@@ -2,7 +2,7 @@ package com.inmobiliaria.java.dto;
 
 import java.util.List;
 
-public class LandlordUpdateDTO {
+public class LandlordDTO {
     private Long id;
     private String name;
     private String lastname;
@@ -14,6 +14,22 @@ public class LandlordUpdateDTO {
     private String bankAccount;
 
     private List<Long> propertiesListIds;
+
+    
+
+    public LandlordDTO(Long id, String name, String lastname, Long dni, String email, Long phone, Long cuit,
+            String bank, String bankAccount, List<Long> propertiesListIds) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.dni = dni;
+        this.email = email;
+        this.phone = phone;
+        this.cuit = cuit;
+        this.bank = bank;
+        this.bankAccount = bankAccount;
+        this.propertiesListIds = propertiesListIds;
+    }
 
     public Long getId() {
         return id;
