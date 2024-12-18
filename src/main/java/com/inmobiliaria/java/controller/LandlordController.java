@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
@@ -46,6 +45,7 @@ public class LandlordController {
         return "El locador fue eliminado correctamente";
     }
 
+    // TODO: refactorizar LandlordDto a LandlordDTO
     @PutMapping("landlords/edit")
     public Landlord editLandlord(@RequestBody LandlordDTO landlordDto) {
     Landlord landlord = landlordService.findLandlord(landlordDto.getId());

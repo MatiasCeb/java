@@ -1,12 +1,14 @@
 package com.inmobiliaria.java.dto;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inmobiliaria.java.model.Landlord;
 import com.inmobiliaria.java.model.Property;
 
-public class LandlordDTOMapper {
+public class LandlordDTOMapper implements Serializable{
 
     public static LandlordDTO toDTO(Landlord landlord) {
         if (landlord == null) {

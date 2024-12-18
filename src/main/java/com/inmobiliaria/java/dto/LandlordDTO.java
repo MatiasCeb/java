@@ -1,8 +1,9 @@
 package com.inmobiliaria.java.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class LandlordDTO {
+public class LandlordDTO implements Serializable {
     private Long id;
     private String name;
     private String lastname;

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inmobiliaria.java.dto.PropertyDTO;
+import com.inmobiliaria.java.model.Landlord;
 import com.inmobiliaria.java.model.Property;
 import com.inmobiliaria.java.service.IPropertyService;
 
@@ -23,7 +25,7 @@ public class PropertyController {
     private IPropertyService properService;
 
     @GetMapping("/properties")
-    public List<Property>  getProperties() {
+    public List<PropertyDTO>  getProperties() {
         return properService.getProperties();
     }
 
@@ -33,8 +35,8 @@ public class PropertyController {
     }
     
     @PostMapping("/properties/create")
-    public String createProperty(@RequestBody Property proper) {
-        properService.saveProperty(proper);
+    public String createProperty(@RequestBody PropertyDTO properDTO) {
+        properService.saveProperty(properDTO);
         
         return "La propiedad fue creada correctamente";
     }
@@ -48,14 +50,16 @@ public class PropertyController {
 
 
     // DOING: solucionar Cannot invoke "com.inmobiliaria.java.model.Person.getId()" because "this.person" is null
-        @PutMapping("properties/edit")
-    public Property editProperty(@RequestBody Property proper) {
-        properService.editProperty(proper);
+    @PutMapping("properties/edit")
+    public Property editProperty(@RequestBody PropertyDTO properDTO) {
+        Property property = properService.findProperty(properDTO.getId());
 
-        return properService.findProperty(proper.getId());
+        properService.editProperty(property, properDTO);
+
+        return properService.findProperty(property.getId());
     }
 
-        @GetMapping("/properties/landlord/{landlordId}")
+    @GetMapping("/properties/landlord/{landlordId}")
     public ResponseEntity<List<Property>> getPropertiesByPersonId(@PathVariable Long personId) {
         List<Property> properties = properService.getPropertiesByPersonId(personId);
         return ResponseEntity.ok(properties);
